@@ -34,10 +34,7 @@ export default clerkMiddleware(async (auth, req) => {
     // Logged-in user accessing public routes
     if (isPublicRoute(req)) {
       return NextResponse.redirect(
-        new URL(
-          role === "admin" ? "/admin/dashboard" : "/dashboard",
-          req.url
-        )
+        new URL(role === "admin" ? "/admin/dashboard" : "/dashboard", req.url),
       );
     }
   }
